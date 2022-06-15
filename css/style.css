@@ -1,0 +1,105 @@
+:root{
+    --container-width: 1140px;
+
+    --font-size-primary: 24px;
+    --font-size-secondary: 18px;
+    --font-color-primary: rgb(20, 32, 99);
+    
+    /* 4 values */
+    --header-spacing: 24px 12px;
+}
+
+*:not(ul, ol, li) {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--font-color-primary);
+    font-size: var(--font-size-primary);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+.container {
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header,
+footer {
+    box-shadow: 0 0 30px 0 rgba(0,0,0,.1)
+}
+
+#logo a {
+    display: inline-block;
+    font-size: var(--font-size-primary);
+    color: var(--font-color-primary);
+    text-decoration: none;
+    padding: var(--header-spacing);
+    position: relative;
+    font-weight: bold;
+}
+
+#logo a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: .75;
+    z-index: -1;
+    background-image: url(/images/header-logo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+#footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: var(--font-size-secondary)
+}
+
+#footer .row {
+    padding: 24px 12px;
+}
+
+#footer ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+#footer ul li:not(:last-child):after {
+    content: "\00a0 | \00a0";
+    padding: 0 12px;
+}
+
+#footer ul li:hover a {
+    transform: scale(1.05);
+}
+#footer ul a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--font-color-primary);
+    transition: transform 150ms ease-in-out;
+}
+
+@media screen and (min-width: 960px){
+    #footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
